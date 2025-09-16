@@ -1,0 +1,206 @@
+PROJECT CODENET PROBLEM FEATURES - COMPREHENSIVE LIST
+=====================================================
+
+This document lists all features that each coding problem has or can potentially have in the extracted Project CodeNet dataset. Each problem is structured as a JSON object with the following hierarchical features:
+
+BASIC INFORMATION FEATURES
+==========================
+
+1. questionId (string)
+   - Unique identifier for each problem
+   - Format: p##### (p followed by 5 digits)
+   - Example 1: "p00001"
+   - Example 2: "p04043"
+
+2. title (string)
+   - Human-readable problem title/name
+   - Can be in English or Japanese
+   - Example 1: "List of Top 3 Hills"
+   - Example 2: "Is it a Right Triangle?"
+
+3. description (string)
+   - Full problem statement and requirements
+   - Contains the main problem explanation, input/output format, and context
+   - Example 1: "There is a data which provides heights (in meter) of mountains. The data is only for ten mountains. Write a program which prints heights of the top three mountains in descending order."
+   - Example 2: "Write a program which judges whether given length of three side form a right triangle. Print 'YES' if the given sides (integers) form a right triangle, 'NO' if not so."
+
+4. difficulty (string)
+   - Assessed difficulty level: "Easy", "Medium", or "Hard"
+   - Based on problem complexity, constraints, and algorithmic requirements
+   - Example 1: "Easy" (simple sorting problem)
+   - Example 2: "Medium" (requires graph algorithms)
+
+5. category (string)
+   - Primary algorithmic category/topic area
+   - Possible values: "Arrays & Strings", "Math & Logic", "Geometry", "Sorting & Searching", "Dynamic Programming", "Trees & Graphs", "Greedy Algorithms", "Simulation", "Implementation"
+   - Example 1: "Sorting & Searching"
+   - Example 2: "Geometry"
+
+6. tags (array of strings)
+   - Searchable keywords describing problem characteristics
+   - Multiple tags possible per problem
+   - Possible values: "array", "string", "math", "geometry", "sorting", "graph", "simulation", "implementation"
+   - Example 1: ["array", "sorting", "implementation"]
+   - Example 2: ["geometry", "implementation"]
+
+7. source (string)
+   - File path to original HTML problem description
+   - Used for traceability and verification
+   - Example 1: "/Users/eliyoung/Project_CodeNet/doc/problem_descriptions/p00001.html"
+   - Example 2: "/Users/eliyoung/Project_CodeNet/doc/problem_descriptions/p00003.html"
+
+CONSTRAINT FEATURES
+==================
+
+8. timeLimit (number or null)
+   - Maximum execution time allowed in milliseconds
+   - null if not specified in original problem
+   - Example 1: 1000 (1 second)
+   - Example 2: null (not specified)
+
+9. memoryLimit (number or null)
+   - Maximum memory usage allowed in KB
+   - null if not specified in original problem
+   - Example 1: 131072 (128 MB)
+   - Example 2: null (not specified)
+
+10. inputConstraints.description (string)
+    - Textual description of input limitations and ranges
+    - Contains mathematical constraints and variable bounds
+    - Example 1: "0 ≤ height of mountain (integer) ≤ 10,000"
+    - Example 2: "1 ≤ length of the side ≤ 1,000; N ≤ 1,000"
+
+11. inputConstraints.ranges (string)
+    - Extracted numerical ranges from constraint descriptions
+    - Semicolon-separated list of range values
+    - Example 1: "0; 10000"
+    - Example 2: "1; 1000; 1000"
+
+12. languageRestrictions (array of strings)
+    - Specific programming languages required or restricted
+    - Usually empty (no restrictions)
+    - Example 1: [] (no restrictions)
+    - Example 2: ["C++", "Java"] (only these languages allowed)
+
+EXAMPLE FEATURES
+===============
+
+13. sampleCases (array of objects)
+    - User-visible input/output examples
+    - Each case contains input, output, and optional explanation
+    - Example 1: [{"input": "1819\n2003\n876\n2840\n1723\n1673\n3776\n2848\n1592\n922", "output": "3776\n2848\n2840", "explanation": ""}]
+    - Example 2: [{"input": "3\n4 3 5\n4 3 6\n8 8 8", "output": "YES\nNO\nNO", "explanation": ""}]
+
+14. sampleCases[].input (string)
+    - Sample input data for the problem
+    - Newline-separated for multi-line inputs
+    - Example 1: "1819\n2003\n876\n2840\n1723\n1673\n3776\n2848\n1592\n922"
+    - Example 2: "3\n4 3 5\n4 3 6\n8 8 8"
+
+15. sampleCases[].output (string)
+    - Expected output for the corresponding input
+    - Newline-separated for multi-line outputs
+    - Example 1: "3776\n2848\n2840"
+    - Example 2: "YES\nNO\nNO"
+
+16. sampleCases[].explanation (string)
+    - Optional explanation of why the output is correct
+    - Often empty in competitive programming problems
+    - Example 1: "" (empty)
+    - Example 2: "Using three phrases of length 5, 5 and 7, it is possible to construct a Haiku."
+
+17. testCases (array of objects)
+    - Hidden test cases used for evaluation (usually empty in this dataset)
+    - Same structure as sampleCases but marked as hidden
+    - Example 1: [] (empty)
+    - Example 2: [{"input": "test data", "output": "expected result", "hidden": true}]
+
+CODE TEMPLATE FEATURES
+=====================
+
+18. codeTemplates.python (string)
+    - Starting code structure for Python solutions
+    - Includes basic imports and function skeleton
+    - Example 1: "def solve():\n    # Read input\n    # Process data\n    # Output result\n    pass\n\nif __name__ == \"__main__\":\n    solve()"
+    - Example 2: Same template structure with problem-specific comments
+
+19. codeTemplates.cpp (string)
+    - Starting code structure for C++ solutions
+    - Includes common headers and main function
+    - Example 1: "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nint main() {\n    // Read input\n    // Process data\n    // Output result\n    return 0;\n}"
+    - Example 2: Same template with algorithm-specific includes
+
+20. codeTemplates.java (string)
+    - Starting code structure for Java solutions
+    - Includes imports and main class structure
+    - Example 1: "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Read input\n        // Process data\n        // Output result\n        sc.close();\n    }\n}"
+    - Example 2: Same template with problem-specific variable names
+
+21. codeTemplates.javascript (string)
+    - Starting code structure for JavaScript solutions
+    - Includes basic function structure
+    - Example 1: "function solve() {\n    // Read input\n    // Process data\n    // Output result\n}\n\nsolve();"
+    - Example 2: Same template with Node.js input handling
+
+METADATA FEATURES
+================
+
+22. extractedFrom (string)
+    - Source file path from which the problem was extracted
+    - Used for traceability and debugging
+    - Example 1: "/Users/eliyoung/Project_CodeNet/doc/problem_descriptions/p00001.html"
+    - Example 2: "/Users/eliyoung/Project_CodeNet/doc/problem_descriptions/p04043.html"
+
+23. confidence (number)
+    - Extraction confidence score (0.0 to 1.0)
+    - Higher values indicate more complete/reliable extraction
+    - Example 1: 1.0 (high confidence - complete problem with examples)
+    - Example 2: 0.7 (medium confidence - some missing information)
+
+24. notes (string)
+    - Additional extraction notes or assumptions made
+    - Documents any special handling or issues during extraction
+    - Example 1: "Extracted from Project CodeNet problem p00001"
+    - Example 2: "Extracted from Project CodeNet problem p04043 - AtCoder format"
+
+FEATURE AVAILABILITY STATISTICS
+==============================
+
+Based on analysis of 3,990 extracted problems:
+
+- questionId: 100% (all problems have unique IDs)
+- title: 99.9% (almost all problems have titles)
+- description: 95% (most problems have descriptions)
+- difficulty: 100% (all problems assessed)
+- category: 100% (all problems categorized)
+- tags: 100% (all problems have at least one tag)
+- source: 100% (all problems have source file paths)
+- timeLimit: <1% (rarely specified in this dataset)
+- memoryLimit: <1% (rarely specified in this dataset)
+- inputConstraints.description: 80% (most problems have constraint descriptions)
+- inputConstraints.ranges: 60% (many problems have extractable ranges)
+- languageRestrictions: <1% (rarely used)
+- sampleCases: 85% (most problems have sample input/output)
+- testCases: <1% (rarely populated in this dataset)
+- codeTemplates: 100% (all problems have templates for all 4 languages)
+- extractedFrom: 100% (all problems have source traceability)
+- confidence: 100% (all problems have confidence scores)
+- notes: 100% (all problems have extraction notes)
+
+USAGE NOTES
+===========
+
+1. All string fields support Unicode characters (including Japanese text)
+2. Null values indicate missing or unavailable information
+3. Empty arrays/strings indicate the field exists but has no content
+4. Code templates are generic and may need customization for specific problems
+5. Confidence scores help identify problems that may need manual review
+6. Tags and categories enable efficient filtering and searching
+7. Sample cases provide immediate testing capability for solutions
+
+This comprehensive feature set makes the extracted Project CodeNet dataset suitable for:
+- Algorithm training and practice
+- AI model training for code generation
+- Automated testing and evaluation
+- Educational content creation
+- Research in programming problem analysis
